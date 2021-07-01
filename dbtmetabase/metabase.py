@@ -384,16 +384,6 @@ class MetabaseClient:
             table_schema = table.get("schema", "public").upper()
             table_name = table["name"].upper()
 
-            if schema:
-                if table_schema != schema.upper():
-                    logging.debug(
-                        "Ignoring Metabase table %s in schema %s. It does not belong to selected schema %s",
-                        table_name,
-                        table_schema,
-                        schema,
-                    )
-                    continue
-
             if schemas_to_exclude:
                 schemas_to_exclude = {
                     exclusion.upper() for exclusion in schemas_to_exclude
